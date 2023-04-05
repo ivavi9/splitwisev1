@@ -69,5 +69,26 @@ public class LoaderClass {
             expenseRepository.save(expense);
         }
 
+        for (long i = 1; i <= 10; i++) {
+            User user = userRepository.findById(i).get();
+            Group group = groupRepository.findById(i).get();
+
+            // create an expense
+            Expense expense = new Expense();
+            expense.setDescription("Expense " + i);
+            expense.setAmount(i * 100);
+            expense.setUserCreatedBy(user);
+            expense.setCreatedAt(new Date());
+            expense.setParticipants(Arrays.asList(user));
+            expenseRepository.save(expense);
+
+            // add the expense to the group
+
+            List<Expense> expenseList = group.getExpenseList();
+            expenseList.add(expense);
+            group.setExpenseList(expenseList);
+            groupRepository.save(group);
+        }
+
     }
 }

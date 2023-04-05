@@ -29,7 +29,7 @@ public class Group extends BaseModel {
 
     private Date createTime;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Expense> expenseList;
 
 }
