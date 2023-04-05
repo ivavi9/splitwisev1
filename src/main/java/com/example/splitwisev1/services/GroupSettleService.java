@@ -4,6 +4,7 @@ import com.example.splitwisev1.dtos.RequestDTO;
 import com.example.splitwisev1.dtos.ResponseDTO;
 import com.example.splitwisev1.models.Expense;
 import com.example.splitwisev1.repositories.ExpenseRepository;
+import com.example.splitwisev1.repositories.GroupRepository;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +18,21 @@ public class GroupSettleService {
     @Autowired
     ExpenseRepository expenseRepository;
 
+    @Autowired
+
+    GroupRepository groupRepository;
+
+
     public ResponseDTO settle(long groupId, long requesterUserId) {
 
-        List<Expense> expenseList = expenseRepository.findByGroupId(groupId);
+//        if(groupRepository.countUserAsGroupMember(groupId,requesterUserId) == 0){
+//            return null;
+//        }
 
+        List<Expense> expenseList = expenseRepository.findAllByGroup_Id(groupId);
+
+        System.out.println("Came in group settle service after expense list also");
+        expenseList.forEach(System.out::println);
 
 
         return null;

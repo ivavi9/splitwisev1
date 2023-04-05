@@ -6,11 +6,10 @@ import com.example.splitwisev1.dtos.ResponseDTO;
 import com.example.splitwisev1.services.GroupSettleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/settle")
+@RestController
+@RequestMapping("/settle")
 public class SettleUp {
 
 
@@ -37,5 +36,14 @@ public class SettleUp {
 
        return null;
    }
+    @GetMapping("/group2")
+    public void settleGroupUser2(){
+        System.out.println("Came here group2");
+        RequestDTO requestDTO = new RequestDTO();
+        requestDTO.setGroupId(1);
+        requestDTO.setRequesterUserId(1);
+        ResponseDTO responseDTO = groupSettleService.settle(requestDTO.getGroupId(),requestDTO.getRequesterUserId());
+
+    }
 
 }

@@ -26,4 +26,14 @@ public class Expense extends BaseModel {
     @ManyToMany
     private List<User> participants;
 
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "description='" + description + '\'' +
+                ", amount=" + amount +
+                ", userCreatedBy=" + userCreatedBy +
+                ", createdAt=" + createdAt +
+                ", participants=" + participants +
+                '}';
+    }
 }
