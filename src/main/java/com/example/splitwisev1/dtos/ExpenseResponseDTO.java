@@ -5,9 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RequestDTO {
-    private long requesterUserId;
+public class ExpenseResponseDTO {
+    private long userCreatedBy;
     private long groupId;
-    private long targetUserId;
-
+    private String description;
 }

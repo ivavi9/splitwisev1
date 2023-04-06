@@ -1,10 +1,12 @@
-package com.example.splitwisev1.helpers;
+package com.example.splitwisev1.startup;
 
 import com.example.splitwisev1.models.Expense;
 import com.example.splitwisev1.models.Group;
 import com.example.splitwisev1.models.User;
+import com.example.splitwisev1.models.UserExpenseHasToPay;
 import com.example.splitwisev1.repositories.ExpenseRepository;
 import com.example.splitwisev1.repositories.GroupRepository;
+import com.example.splitwisev1.repositories.UserExpenseHasToPayRepository;
 import com.example.splitwisev1.repositories.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,12 @@ public class LoaderClass {
 
     @Autowired
     private ExpenseRepository expenseRepository;
+
+    @Autowired
+    private UserExpenseHasToPayRepository userExpenseHasToPayRepository;
+
+
+
 
     @PostConstruct
     public void init() {
@@ -89,6 +97,19 @@ public class LoaderClass {
             group.setExpenseList(expenseList);
             groupRepository.save(group);
         }
+
+        for (long i = 1; i <= 10; i++) {
+            User user = userRepository.findById(i).get();
+            Expense expense = expenseRepository.findById(i).get();
+
+            UserExpenseHasToPay userExpenseHasToPay = new UserExpenseHasToPay();
+            userExpenseHasToPay.setUser(user);
+            userExpenseHasToPay.setExpense(expense);
+            userExpenseHasToPay.setAmount(i * 10);
+
+            userExpenseHasToPayRepository.save(userExpenseHasToPay);
+        }
+
 
     }
 }

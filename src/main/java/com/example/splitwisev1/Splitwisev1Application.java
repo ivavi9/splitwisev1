@@ -1,6 +1,6 @@
 package com.example.splitwisev1;
 
-import com.example.splitwisev1.helpers.LoaderClass;
+import com.example.splitwisev1.startup.LoaderClass;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

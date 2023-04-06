@@ -1,11 +1,9 @@
 package com.example.splitwisev1.services;
 
-import com.example.splitwisev1.dtos.RequestDTO;
-import com.example.splitwisev1.dtos.ResponseDTO;
+import com.example.splitwisev1.dtos.ControllerResponseDTO;
 import com.example.splitwisev1.models.Expense;
 import com.example.splitwisev1.repositories.ExpenseRepository;
 import com.example.splitwisev1.repositories.GroupRepository;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +21,7 @@ public class GroupSettleService {
     GroupRepository groupRepository;
 
 
-    public ResponseDTO settle(long groupId, long requesterUserId) {
+    public ControllerResponseDTO settle(long groupId, long requesterUserId) {
 
 //        if(groupRepository.countUserAsGroupMember(groupId,requesterUserId) == 0){
 //            return null;

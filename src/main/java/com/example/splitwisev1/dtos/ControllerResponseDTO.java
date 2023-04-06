@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Getter
 @Setter
-public class ResponseDTO
+public class ControllerResponseDTO
 {
     private Map<User,Long> settlementAmount;
     private String description;

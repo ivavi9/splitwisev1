@@ -6,6 +6,6 @@ import com.example.splitwisev1.models.User;
 import java.util.List;
 import java.util.Map;
 
-public interface Settle {
+public interface SettleController {
     public Map<User,Long> getDues(List<Expense> expenseList);
 }
