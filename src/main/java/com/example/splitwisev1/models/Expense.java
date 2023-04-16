@@ -2,6 +2,7 @@ package com.example.splitwisev1.models;
 
 
 import jakarta.persistence.*;
+
 import lombok.Setter;
 import lombok.Getter;
 
@@ -36,4 +37,6 @@ public class Expense extends BaseModel {
                 ", participants=" + participants +
                 '}';
     }
+
+
 }

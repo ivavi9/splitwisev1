@@ -9,5 +9,6 @@ public class ControllerRequestDTO {
     private long requesterUserId;
     private long groupId;
     private long targetUserId;
+    private double amount;
 
 }

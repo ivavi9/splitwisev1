@@ -20,4 +20,5 @@ public class ControllerResponseDTO
 
     private Currency currency;
 
+
 }
